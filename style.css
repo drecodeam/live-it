@@ -1,0 +1,311 @@
+/*CSS for LIVE-IT*/
+#liveit{
+	margin-left:-2em;
+	
+	
+}
+#liveit_edit{
+	position:absolute;
+	display:block;
+	right:4%;
+	top:20%;
+	background:#E6E6E6;
+	border-radius:100px;
+	width:50px;
+	height:50px;
+	opacity:0.4;
+}
+
+#liveit_edit img{
+	display:block;
+	position:absolute;
+	top:22%;
+	left:22%;
+}
+
+#liveit_edit:hover{
+	cursor:pointer;
+	opacity:1;
+}
+
+#liveit_sidebar{
+	display:block;
+	position:fixed;
+	visibility:hidden;
+	width:0%;
+	right:0%;
+	top:0px;
+	background:#4C4C4C;
+	color:#FFBD00;
+	list-style:none;
+	height:95%;
+	overflow-y:scroll;
+	
+}
+
+
+#liveit_bottom{
+	width:100%;
+	position:fixed;
+	bottom:0px;
+	height:5%;
+	background:black;
+	z-index:1000000;
+}
+
+.border{
+	border:2px #FF0080 solid;
+}
+
+#liveit_sidebar .prop_name{
+	display:block;
+	color:#B3B3B3;
+	position:relative;
+	display:inline;
+}
+
+
+
+#liveit_sidebar .title{
+display:block;
+clear:both;
+background:#333333;
+color:#FFCE02;
+padding:10px;
+
+}
+#liveit_sidebar .prop_val{
+	display:inline;
+	color:#FFBD00;
+	position:relative;
+}
+
+.stylesheet_name{
+	display:block;
+	clear:both;
+	position:relative;
+	background:#333333;
+	font-size:14px;
+	color:#E6E6E6;
+	margin:0px;
+	padding:10px;
+}
+
+.selector_name{
+	color:#0080FF;
+}
+
+
+
+#liveit_sidebar ul{
+list-style:none;
+margin:0px;
+}
+
+#liveit_head{
+	height:50px;
+	width:100%;
+	display:block;
+	position:relative;
+	background:black;
+}
+.selector{
+	display:inline-block;
+	float:left;
+	position:relative;
+	margin-left:10px;
+	padding:2px;
+	margin-top:10px;
+	opacity:0.1;
+}
+
+.selected{
+	opacity:1;
+}
+
+.selector img{
+	max-width:25px;
+	max-height:25px;
+	display:block;
+	position:relative;
+}
+
+#toggle{
+	margin-left:50px;
+	display:block;
+	position:relative;
+	float:left;
+	padding:5px 10px 5px 10px;
+	margin-top:10px;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 4px 10px 4px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  background-color: #f5f5f5;
+  
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #ccc;
+  border-bottom-color: #bbb;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  *margin-left: .3em;
+}
+.btn:hover,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  background-color: #e6e6e6;
+}
+.btn:active, .btn.active {
+  background-color: #cccccc \9;
+}
+.btn:first-child {
+  *margin-left: 0;
+}
+.btn:hover {
+  color: #333333;
+  text-decoration: none;
+  background-color: #e6e6e6;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -ms-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.btn:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.up-arrow {
+width:0px;
+display:block;
+position:relative;
+margin-top:-10px;
+  margin-left: 25%;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #333333;
+}
+
+
+#liveit_menu{
+	background:#4C4C4C;
+	display:block;
+	position:relative;
+	height:100%;
+	float:left;
+	
+}
+
+#default{
+}
+
+#liveit_rules{
+	display:block;
+	position:relative;
+	
+}
+
+#toggle .direct{
+	display:none;
+}
+
+#liveit_direct_rules,
+#liveit_computed_rules{
+	display:block;
+	position:relative;
+	margin-top:0px;
+}
+
+#liveit_computed_rules{
+	display:none;
+}
+
+.right-arrow {
+  display:block;
+  position:absolute;
+  right:-25px;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 25px solid #4C4C4C;
+}
+
+
+.breadcrumb {
+	list-style: none;
+	overflow: hidden;
+	font: 18px Helvetica, Arial, Sans-Serif;
+}
+.breadcrumb li {
+	float: left;
+	margin-top:10px;
+	margin-bottom:10px;
+	height:20px;
+	display:block;
+	position:relative;
+}
+.breadcrumb li a {
+	color: white;
+	text-decoration: none;
+	padding: 10px 0 10px 65px;
+	background: brown;                   /* fallback color */
+	background: hsla(200,85%,35%,1);
+	position: relative;
+	display: block;
+	float: left;
+}
+
+
+.breadcrumb li a{
+	display:block;
+	float:left;
+	position:relative;
+}
+.breadcrumb li a:after {
+	content: " ";
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 50px solid transparent;
+	border-left: 30px solid hsla(34,85%,35%,1);
+	position: absolute;
+	top: 50%;
+	margin-top: -50px;
+	left: 100%;
+	z-index: 2;
+}
+
+#liveit_breadcrumb{
+	display:block;
+	position:relative;
+	
+}
+
+
+
+	
+/* Live It CSS ends */
