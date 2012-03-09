@@ -1,6 +1,7 @@
 
 #liveit {
  margin-left: -2em;
+ font-size:14px;
 }
 
 #liveit_edit {
@@ -50,6 +51,7 @@
  position: fixed;
  width: 25%;
  right: 0%;
+ top: 28px;
  background-image: initial;
  background-attachment: initial;
  background-origin: initial;
