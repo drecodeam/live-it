@@ -31,6 +31,9 @@ var stylesheets=document.styleSheets;
 var stylesheet_text=new Array();
 /*declarations end*/
 
+var liveit_load_panel=function(){
+   $('#liveit_sidebar').show('slow');
+   $('#liveit_bottom').show('slow');
 
 /*enter liveit mode on click on trigger*/
 $("#liveit_edit").click(function(){
