@@ -1,5 +1,5 @@
  
-$(document).ready(function(){
+jQuery(document).ready(function($) {
 
 
 /*insert live it notification html*/
@@ -200,12 +200,7 @@ var detect_hover = function(){
 
 };
 
-
-
-//getting the node of clicked element
-$("body").click(function(event) {
-   event.preventDefault();
-   if(liveedit_mode==1){
+liveit_click_handler=function(){
    $('#liveit_direct_rules').text('');
    $('#liveit_computed_rules').text('');
    $('#liveit_bottom #liveit_breadcrumb').html('');
@@ -237,6 +232,15 @@ if(target.tagName){
 getCSSRule(target);
 get_inherited_rule(target);
    }
+
+
+//getting the node of clicked element
+$("body").click(function(event) {
+   if(liveedit_mode==1){
+      event.preventDefault();
+   liveit_click_handler();
+   }
+   
 });
 
 

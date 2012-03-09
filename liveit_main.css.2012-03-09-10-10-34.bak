@@ -2,12 +2,27 @@
 #liveit {
  margin-left: -2em;
  font-size: 14px;
- font-family:sans-serif;
- line-height:1.5em;
- list-style:none;
  
 }
-
+#liveit_edit {
+ position: absolute;
+ display: block;
+ right: 4%;
+ top: 20%;
+ background-image: url(http://localhost:8888/wp3/wp-content/plugins/LIVEIT/icon_edit.png);
+ background-attachment: initial;
+ background-origin: initial;
+ background-clip: initial;
+ background-color: black;
+ border-top-left-radius: 100px;
+ border-top-right-radius: 100px;
+ border-bottom-right-radius: 100px;
+ border-bottom-left-radius: 100px;
+ width: 50px;
+ height: 50px;
+ opacity: 0.4;
+ 
+}
 #liveit_edit img {
  display: block;
  position: absolute;
@@ -52,7 +67,7 @@
  
 }
 #liveit_bottom {
- width: 100% !important;
+ width: 100%;
  position: fixed;
  bottom: 0px;
  height: 5%;
@@ -74,7 +89,7 @@
  top: 5px;
  height: 24px;
  width: 24px;
- background-image: url('close.png');
+ background-image: url(http://localhost:8888/wp3/wp-content/plugins/LIVEIT/close.png);
  background-attachment: initial;
  background-origin: initial;
  background-clip: initial;
@@ -88,10 +103,6 @@
 .liveit_bottom_close {
  opacity: 1;
  
-}
-
-#liveit_sidebar ul li{
-	padding-left:10px;
 }
 .border {
  border-top-width: 2px;

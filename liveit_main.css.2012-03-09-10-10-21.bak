@@ -1,13 +1,28 @@
 
 #liveit {
  margin-left: -2em;
- font-size: 14px;
- font-family:sans-serif;
- line-height:1.5em;
- list-style:none;
- 
+ font-size:14px;
 }
 
+#liveit_edit {
+ position: absolute;
+ display: block;
+ right: 4%;
+ top: 20%;
+ background-image: url(http://localhost:8888/wp3/wp-content/plugins/LIVEIT/icon_edit.png);
+ background-attachment: initial;
+ background-origin: initial;
+ background-clip: initial;
+ background-color: black;
+ border-top-left-radius: 100px;
+ border-top-right-radius: 100px;
+ border-bottom-right-radius: 100px;
+ border-bottom-left-radius: 100px;
+ width: 50px;
+ height: 50px;
+ opacity: 0.4;
+ 
+}
 #liveit_edit img {
  display: block;
  position: absolute;
@@ -19,13 +34,12 @@
  display: block;
  position: relative;
  float: right;
- margin-right: 5%;
- margin-top: 5px;
- width: 100px;
- font-size: 16px;
- padding-bottom: 2px;
- line-height: 1.2em;
- 
+ margin-right:5%;
+ margin-top:5px;
+ width:100px;
+ font-size:16px;
+ padding-bottom:2px;
+ line-height:1.2em;
 }
 #liveit_edit:hover {
  cursor: pointer;
@@ -33,7 +47,7 @@
  
 }
 #liveit_sidebar {
- display: none;
+ display:none;
  position: fixed;
  width: 25%;
  right: 0%;
@@ -52,46 +66,36 @@
  
 }
 #liveit_bottom {
- width: 100% !important;
+ width: 100%;
  position: fixed;
  bottom: 0px;
  height: 5%;
- min-height: 30px;
+ min-height:30px;
  background-image: initial;
  background-attachment: initial;
  background-origin: initial;
  background-clip: initial;
  background-color: black;
  z-index: 1000000;
- visibility: visible;
- display: none;
- 
-}
-#liveit_bottom .liveit_bottom_close {
- display: block;
- position: absolute;
- right: 20px;
- top: 5px;
- height: 24px;
- width: 24px;
- background-image: url('close.png');
- background-attachment: initial;
- background-origin: initial;
- background-clip: initial;
- background-color: initial;
- cursor: pointer;
- opacity: 0.6;
- background-position: initial initial;
- background-repeat: initial initial;
- 
-}
-.liveit_bottom_close {
- opacity: 1;
+ visibility:visible;
+ display:none;
  
 }
 
-#liveit_sidebar ul li{
-	padding-left:10px;
+#liveit_bottom .liveit_bottom_close{
+	display:block;
+	position:absolute;
+	right:20px;
+	top:5px;
+	height:24px;
+	width:24px;
+	background:url('close.png');
+	cursor:pointer;
+	opacity:0.6;
+}
+
+.liveit_bottom_close{
+	opacity:1;
 }
 .border {
  border-top-width: 2px;
@@ -191,10 +195,13 @@ white #liveit_sidebar .title {
  
 }
 .selector {
+ display: inline-block;
  float: left;
+ position: relative;
  margin-left: 10px;
- margin-top: 10px;
+margin-top: 10px;
  opacity: 0.1;
+
  display: block;
  position: relative;
  
@@ -203,6 +210,7 @@ white #liveit_sidebar .title {
  opacity: 1;
  
 }
+
 #toggle {
  margin-left: 50px;
  display: block;
@@ -227,7 +235,7 @@ white #liveit_sidebar .title {
  color: rgb(51, 51, 51);
  text-align: center;
  vertical-align: middle;
- background-color: rgb(245, 191, 0);
+ background-color: #F5BF00;
  border-top-left-radius: 4px;
  border-top-right-radius: 4px;
  border-bottom-right-radius: 4px;
@@ -251,7 +259,7 @@ white #liveit_sidebar .title {
 .btn:hover {
  color: rgb(51, 51, 51);
  text-decoration: none;
- background-color: rgb(230, 227, 0);
+ background-color: #E6E300;
  -webkit-transition-property: background-position;
  -webkit-transition-duration: 0.1s;
  -webkit-transition-timing-function: linear;
@@ -266,6 +274,7 @@ white #liveit_sidebar .title {
  outline-offset: -2px;
  
 }
+
 #liveit_bottom .liveit_notify {
  display: none;
  position: absolute;
@@ -280,7 +289,7 @@ white #liveit_sidebar .title {
  background-attachment: initial;
  background-origin: initial;
  background-clip: initial;
- background-color: rgb(254, 181, 0);
+ background-color: rgba(254, 181, 0,1);
  padding-top: 10px;
  padding-right: 10px;
  padding-bottom: 10px;
@@ -317,40 +326,21 @@ white #liveit_sidebar .title {
  
 }
 #default {
- background-image: url(http://localhost:8888/wp3/wp-content/plugins/LIVEIT/default.png);
- background-attachment: initial;
- background-origin: initial;
- background-clip: initial;
- background-color: initial;
- width: 29px;
- height: 25px;
- background-position: initial initial;
- background-repeat: initial initial;
- 
+ background:url('default.png');
+ width:29px;
+ height:25px;
 }
-#color {
- background-image: url(http://localhost:8888/wp3/wp-content/plugins/LIVEIT/color.png);
- background-attachment: initial;
- background-origin: initial;
- background-clip: initial;
- background-color: initial;
- width: 25px;
- height: 25px;
- background-position: initial initial;
- background-repeat: initial initial;
- 
+
+#color{
+	background:url('color.png');
+ width:25px;
+ height:25px;
 }
-#typo {
- background-image: url(http://localhost:8888/wp3/wp-content/plugins/LIVEIT/ampersand.png);
- background-attachment: initial;
- background-origin: initial;
- background-clip: initial;
- background-color: initial;
- width: 15px;
- height: 25px;
- background-position: initial initial;
- background-repeat: initial initial;
- 
+
+#typo{
+	background:url('ampersand.png');
+ width:15px;
+ height:25px;
 }
 #liveit_rules {
  display: block;
@@ -386,34 +376,28 @@ white #liveit_sidebar .title {
  border-left-color: rgb(76, 76, 76);
  
 }
+
+/*bottom breadcrumb*/
+
 #liveit_breadcrumb {
  display: block;
  position: relative;
  float: left;
- list-style-type: none;
- list-style-position: initial;
- list-style-image: initial;
- 
+ list-style:none;
 }
-#liveit_breadcrumb li {
- float: left;
- margin-left: 10px;
- color: white;
- 
+
+#liveit_breadcrumb li{
+	float:left;
+	margin-left:10px;
+	color:white;
 }
-#liveit_breadcrumb li a {
- color: white;
- 
+
+#liveit_breadcrumb li a{
+	color:white;
 }
-#liveit_rules .title {
- background-image: initial;
- background-attachment: initial;
- background-origin: initial;
- background-clip: initial;
- background-color: rgb(51, 51, 51);
- padding-top: 5px;
- padding-bottom: 5px;
- background-position: initial initial;
- background-repeat: initial initial;
- 
+
+#liveit_rules .title{
+	background:#333333;
+padding-top:5px;
+padding-bottom:5px;
 }

@@ -52,16 +52,13 @@ if(current_user_can('administrator'))
 
 add_action('wp_print_styles', 'liveit_enqueue_styles');
 add_action('wp_print_scripts', 'liveit_enqueue_scripts');
-add_action('wp_ajax_nopriv_liveit_save', 'liveit_save');
-add_action('wp_ajax_liveit_save', 'liveit_save');
 add_action( 'admin_bar_menu', 'toolbar_link_to_mypage', 999 );
 }
 }
 	};
 	
 add_action( 'init', 'liveit_initialize' );
-
-
+add_action('wp_ajax_liveit_save', 'liveit_save');
 function toolbar_link_to_mypage( $wp_admin_bar ) {
   $args = array(
     'id' => 'liveit',
