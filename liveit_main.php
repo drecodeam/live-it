@@ -50,6 +50,16 @@ add_action('wp_ajax_nopriv_liveit_save', 'liveit_save');
 add_action('wp_ajax_liveit_save', 'liveit_save');
 add_action( 'admin_bar_menu', 'toolbar_link_to_mypage', 999 );
 
+function toolbar_link_to_mypage( $wp_admin_bar ) {
+
+  $args = array(
+    'id' => 'liveit',
+    'title' => 'Live It',
+    'href' => '#',
+    'meta' => array('class' => 'liveit_initiator'));
+$wp_admin_bar->add_node($args);
+}
+
 
 	function liveit_save(){
 

@@ -1,12 +1,21 @@
  
 $(document).ready(function(){
+
+
 /*insert live it notification html*/
+var liveit_register_html=function(){
 var insert_html_text='<div id="liveit"><div id="liveit_edit"></div><div id="liveit_sidebar"><div id="liveit_head"><div id="liveit_menu"><div id="typo" class="selector"></div><div id="color" class="selector"></div><div id="default" class="selector selected"></div><div class="right-arrow"></div></div><div id="toggle" class="btn"><div class="computed">COMPUTED</div><div class="direct">DIRECT</div></div></div><div class="up-arrow"></div><div id="liveit_rules"><div id="liveit_direct_rules"></div><div id="liveit_computed_rules"></div></div></div><div id="liveit_bottom"><ul id="liveit_breadcrumb" class="breadcrumb"></ul><div id="liveit_save_button" class="btn">Save</div></div></div>';
 $('body').append(insert_html_text);
 $('#liveit_bottom').append('<div class="liveit_notify"><div id="liveit_notify_spinner"></div></div>');
+$('#liveit_bottom').append('<div class="liveit_bottom_close"></div>');
+
+}
 /*end*/
-/*declarations*/
-   
+
+liveit_register_html();
+
+
+/*declarations*/   
 var liveit_spinner_opts = {
   lines: 12, // The number of lines to draw
   length: 4, // The length of each line
@@ -29,25 +38,37 @@ var liveit_save_index=0;
 var current_edit_node='';
 var stylesheets=document.styleSheets;
 var stylesheet_text=new Array();
+var currentNode = null;
+
 /*declarations end*/
 
 var liveit_load_panel=function(){
    $('#liveit_sidebar').show('slow');
    $('#liveit_bottom').show('slow');
 
+}
 /*enter liveit mode on click on trigger*/
-$("#liveit_edit").click(function(){
+$(".liveit_initiator").click(function(){
    liveedit_mode=1;
    $('body').animate({'width':'70%'},500);
-   
-   $('#liveit_sidebar').css("visibility","visible");
-   $('#liveit_sidebar').animate({'width':'25%'},500);
-   
+   liveit_load_panel();
    detect_hover();
 });
 /*end*/
 
 /*leave liveit mode on click on trigger*/
+$("#liveit_bottom .liveit_bottom_close").click(function(){
+   liveedit_mode=0;
+   $('body').css({'width':''},500);
+   $('#liveit_sidebar').hide('slow');
+   $('#liveit_bottom').hide('slow');
+   $('body').unbind('mousemove', liveit_highlight_target);
+   $(currentNode).removeClass('liveit border');
+   
+
+
+});
+/*end*/
 
 
 
@@ -57,7 +78,6 @@ $("#liveit_edit").click(function(){
 
 var liveit_notify=function(liveit_notify_text){
    $('#liveit_bottom .liveit_notify').append(liveit_notify_text + '<br>'); 
-   
    if(liveit_save_index==0){
    var target = document.getElementById('liveit_notify_spinner');
    $('#liveit_bottom .liveit_notify').text('save completed. You may now refresh to see the changes'); 
@@ -175,18 +195,7 @@ liveit_highlight_target=function(){
 
 //detecting hover over element
 var detect_hover = function(){
-
-   var currentNode = null;
-   $('body').mousemove(function(event) {
-        if ($(event.target) !== currentNode) {
-            $(currentNode).removeClass('liveit border');
-            currentNode = $(event.target);
-            $(currentNode).addClass('liveit border');
-
-         }
-      }
-   );
-
+   $('body').mousemove(liveit_highlight_target);
 };
 
 
