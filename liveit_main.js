@@ -47,6 +47,7 @@ $("#liveit_edit").click(function(){
 });
 /*end*/
 
+/*leave liveit mode on click on trigger*/
 
 
 
