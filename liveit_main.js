@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 /*insert live it notification html*/
 var liveit_register_html=function(){
-var insert_html_text='<div id="liveit"><div id="liveit_edit"></div><div id="liveit_sidebar"><div id="liveit_head"><div id="liveit_menu"><div id="typo" class="selector"></div><div id="color" class="selector"></div><div id="default" class="selector selected"></div><div class="right-arrow"></div></div><div id="toggle" class="btn"><div class="computed">COMPUTED</div><div class="direct">DIRECT</div></div></div><div class="up-arrow"></div><div id="liveit_rules"><div id="liveit_direct_rules"></div><div id="liveit_computed_rules"></div></div></div><div id="liveit_bottom"><ul id="liveit_breadcrumb" class="breadcrumb"></ul><div id="liveit_save_button" class="btn">Save</div></div></div>';
+var insert_html_text='<div id="liveit"><div id="liveit_sidebar"><div id="liveit_head"><div id="liveit_menu"><div id="typo" class="selector"></div><div id="color" class="selector"></div><div id="default" class="selector selected"></div><div class="right-arrow"></div></div><div id="toggle" class="btn"><div class="computed">COMPUTED</div><div class="direct">DIRECT</div></div></div><div class="up-arrow"></div><div id="liveit_rules"><div id="liveit_direct_rules"></div><div id="liveit_computed_rules"></div></div></div><div id="liveit_bottom"><ul id="liveit_breadcrumb" class="breadcrumb"></ul><div id="liveit_save_button" class="btn">Save</div></div></div>';
 $('body').append(insert_html_text);
 $('#liveit_bottom').append('<div class="liveit_notify"><div id="liveit_notify_spinner"></div></div>');
 $('#liveit_bottom').append('<div class="liveit_bottom_close"></div>');
@@ -196,6 +196,8 @@ liveit_highlight_target=function(){
 //detecting hover over element
 var detect_hover = function(){
    $('body').mousemove(liveit_highlight_target);
+   //$('body').unbind('mousemove', liveit_highlight_target);
+
 };
 
 
