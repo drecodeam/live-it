@@ -163,6 +163,14 @@ $('#liveit_sidebar').click(function(event){
 
 /*end*/
 
+liveit_highlight_target=function(){
+   if ($(event.target) !== currentNode) {
+         $(currentNode).removeClass('liveit border');
+         currentNode = $(event.target);
+         $(currentNode).addClass('liveit border');
+         }
+}
+
 
 //detecting hover over element
 var detect_hover = function(){
