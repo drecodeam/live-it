@@ -292,6 +292,8 @@ function getCSSRule(ruleName, deleteFlag) {               // Return requested st
          var cssRule=false;                               // Initialize cssRule. 
 	 do {                                             // For each rule in stylesheet
             //stylesheet_text[ii]='';
+            if(styleSheet.cssRules || styleSheet.Rules)
+            {
             if (styleSheet.cssRules)
                { 
                   cssRule = styleSheet.cssRules[ii];
@@ -300,7 +302,7 @@ function getCSSRule(ruleName, deleteFlag) {               // Return requested st
                {
                   cssRule=styleSheet.Rules[ii];
                }
-            
+            }
 	    if (cssRule){						// If we found a rule...    
 		var selector=cssRule.selectorText;
 		
