@@ -1,10 +1,10 @@
  
-$(document).ready(function(){
+jQuery(document).ready(function($) {
 
 
 /*insert live it notification html*/
 var liveit_register_html=function(){
-var insert_html_text='<div id="liveit"><div id="liveit_edit"></div><div id="liveit_sidebar"><div id="liveit_head"><div id="liveit_menu"><div id="typo" class="selector"></div><div id="color" class="selector"></div><div id="default" class="selector selected"></div><div class="right-arrow"></div></div><div id="toggle" class="btn"><div class="computed">COMPUTED</div><div class="direct">DIRECT</div></div></div><div class="up-arrow"></div><div id="liveit_rules"><div id="liveit_direct_rules"></div><div id="liveit_computed_rules"></div></div></div><div id="liveit_bottom"><ul id="liveit_breadcrumb" class="breadcrumb"></ul><div id="liveit_save_button" class="btn">Save</div></div></div>';
+var insert_html_text='<div id="liveit"><div id="liveit_sidebar"><div id="liveit_head"><div id="liveit_menu"><div id="typo" class="selector"></div><div id="color" class="selector"></div><div id="default" class="selector selected"></div><div class="right-arrow"></div></div><div id="toggle" class="btn"><div class="computed">COMPUTED</div><div class="direct">DIRECT</div></div></div><div class="up-arrow"></div><div id="liveit_rules"><div id="liveit_direct_rules"></div><div id="liveit_computed_rules"></div></div></div><div id="liveit_bottom"><ul id="liveit_breadcrumb" class="breadcrumb"></ul><div id="liveit_save_button" class="btn">Save</div></div></div>';
 $('body').append(insert_html_text);
 $('#liveit_bottom').append('<div class="liveit_notify"><div id="liveit_notify_spinner"></div></div>');
 $('#liveit_bottom').append('<div class="liveit_bottom_close"></div>');
@@ -39,6 +39,107 @@ var current_edit_node='';
 var stylesheets=document.styleSheets;
 var stylesheet_text=new Array();
 var currentNode = null;
+var liveit_styleGroups =
+{
+   //taken from firebug
+    text: [
+        "font-family",
+        "font-size",
+        "font-weight",
+        "font-style",
+        "color",
+        "text-transform",
+        "text-decoration",
+        "letter-spacing",
+        "word-spacing",
+        "line-height",
+        "text-align",
+        "vertical-align",
+        "direction",
+        "column-count",
+        "column-gap",
+        "column-width"
+    ],
+
+    background: [
+        "background-color",
+        "background-image",
+        "background-repeat",
+        "background-position",
+        "background-attachment",
+        "opacity"
+    ],
+
+    box: [
+        "width",
+        "height",
+        "top",
+        "right",
+        "bottom",
+        "left",
+        "margin-top",
+        "margin-right",
+        "margin-bottom",
+        "margin-left",
+        "padding-top",
+        "padding-right",
+        "padding-bottom",
+        "padding-left",
+        "border-top-width",
+        "border-right-width",
+        "border-bottom-width",
+        "border-left-width",
+        "border-top-color",
+        "border-right-color",
+        "border-bottom-color",
+        "border-left-color",
+        "border-top-style",
+        "border-right-style",
+        "border-bottom-style",
+        "border-left-style",
+        "-moz-border-top-radius",
+        "-moz-border-right-radius",
+        "-moz-border-bottom-radius",
+        "-moz-border-left-radius",
+        "outline-top-width",
+        "outline-right-width",
+        "outline-bottom-width",
+        "outline-left-width",
+        "outline-top-color",
+        "outline-right-color",
+        "outline-bottom-color",
+        "outline-left-color",
+        "outline-top-style",
+        "outline-right-style",
+        "outline-bottom-style",
+        "outline-left-style"
+    ],
+
+    layout: [
+        "position",
+        "display",
+        "visibility",
+        "z-index",
+        "overflow",
+        "white-space",
+        "clip",
+        "float",
+        "clear",
+        "-moz-box-sizing"
+    ],
+
+    other: [
+        "cursor",
+        "list-style-image",
+        "list-style-position",
+        "list-style-type",
+        "marker-offset",
+        "user-focus",
+        "user-select",
+        "user-modify",
+        "user-input"
+    ]
+};
 
 /*declarations end*/
 
@@ -196,14 +297,11 @@ liveit_highlight_target=function(){
 //detecting hover over element
 var detect_hover = function(){
    $('body').mousemove(liveit_highlight_target);
+   //$('body').unbind('mousemove', liveit_highlight_target);
+
 };
 
-
-
-//getting the node of clicked element
-$("body").click(function(event) {
-   event.preventDefault();
-   if(liveedit_mode==1){
+liveit_click_handler=function(){
    $('#liveit_direct_rules').text('');
    $('#liveit_computed_rules').text('');
    $('#liveit_bottom #liveit_breadcrumb').html('');
@@ -235,6 +333,15 @@ if(target.tagName){
 getCSSRule(target);
 get_inherited_rule(target);
    }
+
+
+//getting the node of clicked element
+$("body").click(function(event) {
+   if(liveedit_mode==1){
+      event.preventDefault();
+   liveit_click_handler();
+   }
+   
 });
 
 
@@ -286,6 +393,8 @@ function getCSSRule(ruleName, deleteFlag) {               // Return requested st
          var cssRule=false;                               // Initialize cssRule. 
 	 do {                                             // For each rule in stylesheet
             //stylesheet_text[ii]='';
+            if(styleSheet.cssRules || styleSheet.Rules)
+            {
             if (styleSheet.cssRules)
                { 
                   cssRule = styleSheet.cssRules[ii];
@@ -294,7 +403,7 @@ function getCSSRule(ruleName, deleteFlag) {               // Return requested st
                {
                   cssRule=styleSheet.Rules[ii];
                }
-            
+            }
 	    if (cssRule){						// If we found a rule...    
 		var selector=cssRule.selectorText;
 		
@@ -331,7 +440,7 @@ function getCSSRule(ruleName, deleteFlag) {               // Return requested st
                             if(selector!='.border'){
                             var cssrule_text='<div class="cssrule">' + rule + '</div>';
                             var rule_class='_'+ i + '_'+ ii;
-                           $('#liveit_direct_rules').prepend('<ul class="'+rule_class+ '">'+stylesheet_name+selector_name_text +rule_property_text+'</ul>');
+                           $('#liveit_direct_rules').prepend('<ul class="'+rule_class+ '">'+selector_name_text+rule_property_text+stylesheet_name+'<div class="liveit_clear"></div></ul>');
                             }
                             
 

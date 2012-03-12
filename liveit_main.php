@@ -32,9 +32,12 @@ function liveit_enqueue_styles(){
 	}
 
 
+
+
+
 //function to load the scripts
 function liveit_enqueue_scripts(){
-// embed the main javascript
+
 wp_enqueue_script('liveit_spin',plugins_url('spin.min.js', __FILE__),array('jquery')); 
 wp_enqueue_script('liveit_main',plugins_url('liveit_main.js', __FILE__),array('jquery')); 
 
@@ -42,16 +45,21 @@ wp_enqueue_script('liveit_main',plugins_url('liveit_main.js', __FILE__),array('j
 wp_localize_script( 'liveit_main','liveit', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 	}
 	// embed the javascript file that makes the AJAX request
+function liveit_initialize(){
+if(current_user_can('administrator'))
+{
+		if ( !is_admin() ){
 
-        
 add_action('wp_print_styles', 'liveit_enqueue_styles');
 add_action('wp_print_scripts', 'liveit_enqueue_scripts');
-add_action('wp_ajax_nopriv_liveit_save', 'liveit_save');
-add_action('wp_ajax_liveit_save', 'liveit_save');
 add_action( 'admin_bar_menu', 'toolbar_link_to_mypage', 999 );
-
+}
+}
+	};
+	
+add_action( 'init', 'liveit_initialize' );
+add_action('wp_ajax_liveit_save', 'liveit_save');
 function toolbar_link_to_mypage( $wp_admin_bar ) {
-
   $args = array(
     'id' => 'liveit',
     'title' => 'Live It',
